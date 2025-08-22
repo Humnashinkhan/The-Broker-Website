@@ -1,0 +1,123 @@
+
+/**
+ * Homepage JS
+ *
+ * @since   2017-02-10
+ * @author  Daniel van de Bilt
+ */
+var indexIndex = {
+
+    /**
+     * All actions that needs to take place after page is loaded
+     *
+     * @since   2017-02-10
+     * @author  Daniel van de Bilt
+     */
+    init : function()
+    {
+        // Main slider
+        indexIndex.slider();
+
+        // References slider
+        indexIndex.references();
+
+        // Knob dials
+        $('.dial').knob({
+            readOnly   : true,
+            fgColor    : '#ee2e7c',
+            bgColor    : '#eaeaea',
+            width      : 170,
+            height     : 170,
+            thickness  : 0.03,
+            fontWeight : 500,
+            'format'   : function (value) {
+                return value + '%';
+            }
+        });
+    },
+
+    /**
+     * Build homepage slider with Owl carousel
+     *
+     * @since   2017-02-10
+     * @author  Daniel van de Bilt
+     */
+    slider : function()
+    {
+        // Main slides
+        $("#main-slider-images").owlCarousel({
+            loop      : true,
+            items     : 1,
+            margin    : 0,
+            autoplay  : true,
+            dots      : false,
+            touchDrag : false,
+            mouseDrag : false,
+            linked    : "#main-slider-thumbs"
+        });
+
+        // Thumb slides
+        $("#main-slider-thumbs").owlCarousel({
+            loop      : true,
+            items     : 1,
+            margin    : 0,
+            autoplay  : true,
+            dots      : false,
+            touchDrag : false,
+            mouseDrag : false,
+            linked    : "#main-slider-images"
+        });
+    },
+
+    /**
+     * Build homepage slider with Owl carousel
+     *
+     * @since   2017-02-10
+     * @author  Daniel van de Bilt
+     */
+    references : function()
+    {
+        // Main slides
+        $("#references-slider-images").owlCarousel({
+            nav       : false,
+            rewind    : false,
+            loop      : true,
+            items     : 1,
+            margin    : 0,
+            dots      : true,
+            touchDrag : false,
+            mouseDrag : false,
+            linked    : "#references-slider-thumbs"
+        });
+
+        // Thumb slides
+        var thumbs = $("#references-slider-thumbs").owlCarousel({
+            loop      : true,
+            rewind    : false,
+            items     : 5,
+            center    : true,
+            margin    : 15,
+            dots      : false,
+            touchDrag : false,
+            mouseDrag : false,
+            linked    : "#references-slider-images"
+        });
+
+        // Custom Navigation Events
+        thumbs.on('click', '.owl-item', function(){
+            var pos = $(this).find('> div').attr('data-pos');
+            thumbs.trigger('to.owl.carousel', [pos, 0, true]);
+        });
+    }
+};
+
+/**
+ * Init after page load
+ *
+ * @since   2017-02-10
+ * @author  Daniel van de Bilt
+ */
+$(function()
+{
+    indexIndex.init();
+});

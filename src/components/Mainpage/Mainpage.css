@@ -1,0 +1,54 @@
+.bg-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 98%);
+    color: #ffffff;
+ }
+.bg-images{
+    width: 100%;
+    background-image: url(https://www.degratismakelaar.nl/pics/fb-1920x1080-slider/5753-1-verkopen-zonder-kosten.png);
+    background-size: cover;
+    background-position: center;
+
+ }
+ .text-overlay h1{
+    font-size: 60px;
+    font-weight: 500;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-left: 90px;
+    margin-top: 50px;
+
+ }
+ .text-overlay p{
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 20px;
+    margin-left: 100px;
+    margin-top: 50px;
+    color: #ffffff;
+ }
+ .bg-btn{
+    background-color: #ee2e7c;
+    color: #ffffff;
+    padding: 20px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 90px;
+    vertical-align: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    overflow: hidden;
+    margin-top: 60px;
+
+}
+.bg-btn:hover{
+    background-color: white;  
+    color: #ee2e7c;
+    border: 2px solid #ee2e7c;
+}

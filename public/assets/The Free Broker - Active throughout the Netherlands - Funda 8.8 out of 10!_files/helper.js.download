@@ -1,0 +1,17 @@
+function showPleaseSignUpAlert()
+{$('#please-sign-up-alert').modal('show');}
+function number_format(number,decimals,dec_point,thousands_sep){number=(number+'').replace(/[^0-9+\-Ee.]/g,'');var n=!isFinite(+number)?0:+number,prec=!isFinite(+decimals)?0:Math.abs(decimals),sep=(typeof thousands_sep==='undefined')?',':thousands_sep,dec=(typeof dec_point==='undefined')?'.':dec_point,s='',toFixedFix=function(n,prec){var k=Math.pow(10,prec);return ''+Math.round(n*k)/k;};s=(prec?toFixedFix(n,prec):''+Math.round(n)).split('.');if(s[0].length>3){s[0]=s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g,sep);}
+if((s[1]||'').length<prec){s[1]=s[1]||'';s[1]+=new Array(prec-s[1].length+1).join('0');}
+return s.join(dec);}
+function correctNumber(value){value=replaceAll(value,".","");return value=replaceAll(value,",",".");}
+function addDecimals(length){var string='';while(string.length<length){string='0'+string;}
+return string;}
+function removeAllButLast(string,find){var string=string.split('');while(string.indexOf(find)!=-1){if(string.indexOf(find)==string.lastIndexOf(find)){return string.join('');}else{string[string.indexOf(find)]='';}}}
+function replaceAll(string,find,replace){string=string.split('');while(string.indexOf(find)!=-1){string[string.indexOf(find)]=replace;}
+return string.join('');}
+function grayscale(src){var canvas=document.createElement('canvas');var ctx=canvas.getContext('2d');var imgObj=new Image();imgObj.src=src;canvas.width=imgObj.width;canvas.height=imgObj.height;ctx.drawImage(imgObj,0,0);var imgPixels=ctx.getImageData(0,0,canvas.width,canvas.height);for(var y=0;y<imgPixels.height;y++){for(var x=0;x<imgPixels.width;x++){var i=(y*4)*imgPixels.width+x*4;var avg=(imgPixels.data[i]+imgPixels.data[i+1]+imgPixels.data[i+2])/3;imgPixels.data[i]=avg;imgPixels.data[i+1]=avg;imgPixels.data[i+2]=avg;}}
+ctx.putImageData(imgPixels,0,0,0,0,imgPixels.width,imgPixels.height);return canvas.toDataURL();}
+function isBrowserOnOS(browserName,onOS){if(typeof(browserName)==='undefined'){browserName='chrome';}
+if(typeof(onOS)==='undefined'){onOS='Mac';}
+if(navigator.appVersion.indexOf(onOS)!=-1){var isOpera=!!window.opera||navigator.userAgent.indexOf('Opera')>=0;var isFirefox=typeof InstallTrigger!=='undefined';var isSafari=Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor')>0;var isChrome=!!window.chrome;var isIE=false;if((browserName=='opera'&&isOpera==true)||(browserName=='firefox'&&isFirefox==true)||(browserName=='safari'&&isSafari==true)||(browserName=='chrome'&&isChrome==true)||(browserName=='ie'&&isIE==true)){return true;}}
+return false;}

@@ -1,0 +1,9 @@
+var helperFollow={triggers:'.toggle-favorite input, .btn-follow',init:function()
+{if(typeof lastFollowID!=='undefined'&&lastFollowID>0){return helperFollow.bootbox(lastFollowID);}
+$(helperFollow.triggers).on('click change',function(el)
+{el.preventDefault();var clickedElement=$(this),id=clickedElement.attr('data-id');if(isLoggedIn!=='1'){$.post(baseUri+"auctionlot/favorite",{auctionLotID:id});return Helper.mustBeLoggedIn();}
+$.post(baseUri+"auctionlot/favorite",{auctionLotID:id},function(data)
+{var sameFollowTriggers=$('.btn-follow[data-id='+id+']');clickedElement.blur();if(data.status==='follow'){sameFollowTriggers.addClass('is-active');sameFollowTriggers.removeClass('inactive');return helperFollow.bootbox(id);}else if(data.status==='unfollow'){sameFollowTriggers.addClass('inactive');sameFollowTriggers.removeClass('is-active');}});return false;});},bootbox:function(id)
+{return bootbox.confirm({title:'Woning bewaard',message:'De woning is bewaard! Wil je het woningdossier openen?',buttons:{confirm:{label:'Open woningdossier',className:'btn-success-inverted'},cancel:{label:'Sluiten',className:'btn-default'}},callback:function(result)
+{if(result){window.location.replace(baseUri+"woningdossier/"+id);}}});}};$(function()
+{helperFollow.init();});

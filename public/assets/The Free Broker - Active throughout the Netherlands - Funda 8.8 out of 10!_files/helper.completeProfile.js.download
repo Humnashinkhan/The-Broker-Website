@@ -1,0 +1,8 @@
+var completeProfile={submitButton:'#complete-profile-submit',formMessages:'#complete-profile-response',form:'#complete-profile-form',modal:'#complete-profile-modal',init:function()
+{$(completeProfile.submitButton).click(function(btn)
+{btn.preventDefault();completeProfile.submit();return false;});},submit:function()
+{var formData=new FormData(document.querySelector(completeProfile.form)),form=$(completeProfile.form),button=$(completeProfile.submitButton),messages=$(completeProfile.formMessages);button.addClass('disabled');button.attr('disabled','disabled');messages.html('');$.ajax({url:form.attr('action'),method:'POST',async:true,contentType:false,processData:false,data:formData}).done(function(data)
+{if(data.status==='success'){$(completeProfile.modal).modal('hide');bootbox.alert(data.messages[0].text);return true;}
+for(var i=0;i<data.messages.length;i++){if(data.messages[i].text!==''){messages.append('<div class="alert alert-'+data.messages[i].type+'" role="alert">'+data.messages[i].text+'</div>');}}
+button.removeClass('disabled');button.removeAttr('disabled');});}};$(function()
+{completeProfile.init();});

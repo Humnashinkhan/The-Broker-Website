@@ -1,0 +1,98 @@
+.Container{
+   text-align: center;
+   justify-content: center;
+   display: flex;
+   padding: 90px 0 90px 0 ;
+   background-color: rgb(252, 252, 252);
+}
+.header{
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 40%;
+    padding-top: 20px;
+    background-color: white;
+    box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
+    border: 2px solid #ccc;
+
+}
+.Text h1{
+    color: #ee2e7c;
+    font-weight: 300;
+    font-size: 41px;
+    font-family: inherit;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+.first-input{
+    position: relative;
+    width: 500px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 35px;
+    outline: none;
+}
+.icon{
+    color:#fff;
+    background-color: #ee2e7c;
+    margin-top: 15px;
+    padding-left: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+
+}
+input{
+    height: 40px;
+    width: 95%;
+    float:right;
+    padding-left: 15px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+
+}
+input:focus{
+    outline: 1px solid skyblue;
+}
+.second-input{
+    position: relative;
+    width: 500px;
+    height: 50px;
+    outline: none;
+    margin-top: 5px;
+    margin-left: 35px;
+}
+.login-button{
+    margin-top: 35px;
+    color: #fff;
+    background-color: #1b9f35;
+    padding: 10px 10px ;
+    font-weight: 400;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-left: 210px;
+    margin-right: 210px;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+.login-button:hover{
+    background-color: #fff;
+    color:#1b9f35;
+    font-weight: 500;
+    border: 2px solid #1b9f35;
+}
+.nav-link{
+    padding-top: 30px;
+    color: #414753;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+.nav-link:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+$.fn.fixedMenu=function(options){var settings=$.extend({delay:70,hideOnScroll:$('.hide-on-scroll'),smallMenuClass:'small-menu',hideMenuClass:'hide-menu'},options);FixedMenu.delay=settings.delay;FixedMenu.hideOnScroll=settings.hideOnScroll;FixedMenu.smallMenuClass=settings.smallMenuClass;FixedMenu.hideMenuClass=settings.hideMenuClass;FixedMenu.menu=$(this);FixedMenu.init();};FixedMenu={menu:'',hideOnScroll:'',smallMenuClass:'',hideMenuClass:'',previousScrollOffset:0,delay:0,currentDelay:0,scrolledDown:0,init:function()
+{$(window).scroll(function(){var scrollDelay=typeof FixedMenu.menu.attr('data-scroll-delay')!=='undefined'?FixedMenu.menu.attr('data-scroll-delay'):0;var menu=FixedMenu.menu;var scrollOffsetFromTop=$(window).scrollTop()-scrollDelay;var menuHeight=menu.height();var scrollDiff=parseInt(FixedMenu.previousScrollOffset-scrollOffsetFromTop);var top=0;if(scrollOffsetFromTop>=menuHeight){FixedMenu.smallMenu(menu);if(scrollDiff>0){if(FixedMenu.currentDelay==0){FixedMenu.currentDelay=scrollOffsetFromTop;}
+if(FixedMenu.currentDelay>scrollOffsetFromTop+FixedMenu.delay){top=menuHeight-(FixedMenu.currentDelay-(scrollOffsetFromTop+FixedMenu.delay));FixedMenu.showMenu(menu,menuHeight,top);}
+FixedMenu.scrolledDown=0;}
+else{if(FixedMenu.scrolledDown==0){FixedMenu.scrolledDown=scrollOffsetFromTop;}
+top=Math.abs(FixedMenu.scrolledDown-scrollOffsetFromTop);FixedMenu.hideMenu(menu,menuHeight,top);FixedMenu.currentDelay=0;}}
+if(scrollOffsetFromTop<=menuHeight){FixedMenu.largeMenu(menu);FixedMenu.showMenu(menu,menuHeight,0);}
+if(scrollOffsetFromTop+$(window).height()==$(document).height()){FixedMenu.showMenu(menu,menuHeight,0);}
+FixedMenu.previousScrollOffset=scrollOffsetFromTop;});},hideMenu:function(menu,menuHeight,top)
+{menu.addClass(FixedMenu.hideMenuClass);menu.css('top','-'+top+'px');if((core.screenSize==='md'||core.screenSize==='lg')&&$('.sidebar-wrapper-inner.sticky').length>0){$('.sidebar-wrapper-inner.sticky').css('top',(60/4)+'px');}},showMenu:function(menu,menuHeight,top)
+{menu.removeClass(FixedMenu.hideMenuClass,1000);if(parseInt(menu.css('top'))<0){if(top<menuHeight&&top>0){menu.css('top','-'+top+'px');}else{menu.css('top','0');}}
+if((core.screenSize==='md'||core.screenSize==='lg')&&$('.sidebar-wrapper-inner.sticky').length>0){$('.sidebar-wrapper-inner.sticky').css('top',$('#header').height()+(60/4)+'px');}},smallMenu:function(menu)
+{menu.addClass(FixedMenu.smallMenuClass);FixedMenu.hideOnScroll.addClass('hidden');if((core.screenSize==='md'||core.screenSize==='lg')&&$('.sidebar-wrapper-inner.sticky').length>0){$('.sidebar-wrapper-inner.sticky').css('top',(60/4)+'px');}},largeMenu:function(menu)
+{menu.removeClass(FixedMenu.smallMenuClass);FixedMenu.hideOnScroll.removeClass('hidden');}};

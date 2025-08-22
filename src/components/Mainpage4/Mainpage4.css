@@ -1,0 +1,73 @@
+.Mainpage4{
+    position: relative;
+    width: 100%;
+    height: 80vh; 
+    background-color: #fafafa;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 98%);
+    border-top: 2px solid #eaeaea;
+    border-bottom: 2px solid #eaeaea;
+  
+}
+.Heading-1{
+    margin-top: 90px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.Heading-1 h1{
+    font-size: 25px;
+    color: #414753;
+    display: flex;
+}
+.Heading-1 h2{
+    font-size: 25px;
+    color: #414753;
+    display: flex;
+
+}
+.Heading-1 h3{
+    font-size: 25px;
+    color: #414753;
+    display: flex;
+
+}
+.body-container{
+    width:100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 350px;
+}
+.progress-bar{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: #ee2e7c;
+    font-size: 25px !important;
+    font-weight: 500 !important;
+    margin-top: 50px;
+    border: 3px solid #ee2e7c;
+
+}
+.progress-bar h1{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    
+}
+.strong-letter {
+    margin-left: 7px;
+    margin-right: 10px;
+}
+.progress-bar h2{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+.progress-bar h3{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
